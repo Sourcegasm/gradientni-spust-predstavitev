@@ -1,0 +1,39 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+
+\setlength\parindent{0pt}
+
+\begin{document}
+	\section*{Linearna regresija}
+	Imamo $N$ tock, zelimo najti premico, elipso ki se tem tockam najbolje prilega.
+	$$T_1(x_1, y_1), T_2(x_2, y_2) \ldots, T_n(x_n, y_n)$$
+
+	Zapisemo splosno enacbo za krivulje 2. reda:
+	$$Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$$
+
+	Ker je tock prevec, ne moremo najti elipse, na kateri bodo lezale vse tocke. Zato pokusamo najti stoznico (elipso), ki se tockam najbolje prilega. Za tocko $T_i$ velja:
+	$$\varepsilon_i = Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F$$
+	Pri cemer je $\varepsilon_i$ napaka v tej tocki. Iscemo najboljse parametre $A$, $B$, $C$, $D$, $E$ in $F$, tako da bo skupna napaka cim manjsa.\\
+	Ko izracunamo napako za vsako tocko dobimo napako $\rightarrow$ dobimo vektor napak. Zanima nas skupna velikost napake, kar je `dolzina` vektorja.
+	$$\varepsilon = \sqrt{\sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2}$$
+	Zelimo najti minimum te funkcije, ki je odvisna od 6-ih spremenljivk. Ce iscemo minimum te funkcije, je enako kot da bi iskali minimum $E^2$.
+	$$\varepsilon^2(A, B, C, D, E, F) = \sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2$$
+	
+	Izracunamo odvode za to funkcijo, po vseh spremenljivkah.
+	$$\frac{\partial \varepsilon}{\partial A} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_i^2)$$
+	$$\frac{\partial \varepsilon}{\partial B} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_iy_i)$$
+	$$\frac{\partial \varepsilon}{\partial C} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(y_i^2)$$
+	$$\frac{\partial \varepsilon}{\partial D} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_i)$$
+	$$\frac{\partial \varepsilon}{\partial E} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(y_i)$$
+	$$\frac{\partial \varepsilon}{\partial F} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)$$
+
+
+	Da najdemo resitev, moramo ugotoviti kdaj so vsi odvodi enaki 0. Tega ne znamo (da se, ampak ne znamo), zato se bomo resevanja lotili z gradientnim spustom.
+
+	\section*{Gradientni spust}
+	//TODO\\
+	
+
+\end{document}
