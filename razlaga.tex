@@ -1,6 +1,7 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage{mathtools}
 \usepackage{amsmath}
 
@@ -24,8 +25,10 @@
 	
 	Želimo najti minimum te funkcije, ki je odvisna od 6-ih spremenljivk. Če iščemo minimum te funkcije, je enako kot da bi iskali minimum $\varepsilon^{2}$.
 	$$\varepsilon^2(A, B, C, D, E, F) = \sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2$$
+	\paragraph{}
+	Funkcija je odvisna od večih spremenljivk, zato jo moramo odvajati za vsako spremenljivko posebej. Ker nam odvod ene spremenljivke pove kako se funkcija obnaša samo po tej spremenljivki, temu rečemu delni odvod.
 	
-	Izračunamo odvode za to funkcijo, po vseh spremenljivkah.
+	Izračunamo delne odvode za to funkcijo:
 	$$\frac{\partial \varepsilon}{\partial A} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_i^2)$$
 	$$\frac{\partial \varepsilon}{\partial B} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_iy_i)$$
 	$$\frac{\partial \varepsilon}{\partial C} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(y_i^2)$$
