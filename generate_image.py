@@ -29,6 +29,13 @@ if __name__ == '__main__':
     canvas.show()
     canvas.get_tk_widget().pack()
 
+    toolbar = NavigationToolbar2TkAgg(canvas, window.master)
+    toolbar.update()
+    canvas._tkcanvas.pack()
+
+    def on_key_event(event):
+        key_press_handler(event, canvas, toolbar)
+
     for i in range(100):
         ax1.contour(x, y, (y**2 - 4*x + i), [0])
         ax2.scatter(points_x, points_y)
@@ -36,5 +43,9 @@ if __name__ == '__main__':
         ax1.clear()
 
         window.update()
+    print('mami')
+    ax1.contour(x, y, (y**2 - 4*x + 100), [0])
+    ax2.scatter(points_x, points_y)
+    canvas.draw()
 
     window.mainloop()
