@@ -40,6 +40,9 @@ if __name__ == '__main__':
 
     for i in range(200):
         gradient = calculate_gradient(data, params, step)
+        if sum((abs(i) for i in gradient)) <= 1e-3:
+            print(i, 'steps')
+            break
         for j in range(len(params)):
             params[j] -= gradient[j]
 
