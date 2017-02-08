@@ -16,16 +16,16 @@
 	Zapišemo splošno enačbo za krivulje 2. reda:
 	$$Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$$
 
-	Ker je točk preveč, ne moremo najti elipse, na kateri bodo ležale vse tocke. Zato pokusamo najti stožnico (elipso), ki se točkam najbolje prilega. Za točko $T_i$ velja:
+	Ker je točk preveč, ne moremo najti elipse, na kateri bodo ležale vse točke. Zato pokušamo najti stožnico (elipso), ki se točkam najbolje prilega. Za točko $T_i$ velja:
 	$$\varepsilon_i = Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F$$
-	Pri čemer je $\varepsilon_i$ napaka v tej tocki. Iščemo najboljše parametre $A$, $B$, $C$, $D$, $E$ in $F$, tako da bo skupna napaka čim manjša.
-	
+	Pri čemer je $\varepsilon_i$ napaka v tej točki. Iščemo najboljše parametre $A$, $B$, $C$, $D$, $E$ in $F$, tako da bo skupna napaka čim manjša.
+
 	Ko izračunamo napako za vsako točko dobimo vektor napak. Zanima nas skupna velikost napake, kar je 'dolžina' tega vektorja.
 	$$\varepsilon = \sqrt{\sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2}$$
-	
+
 	Želimo najti minimum te funkcije, ki je odvisna od 6-ih spremenljivk. Če iščemo minimum te funkcije, je enako kot da bi iskali minimum $\varepsilon^{2}$.
 	$$\varepsilon^2(A, B, C, D, E, F) = \sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2$$
-	\paragraph{}
+
 	Funkcija je odvisna od večih spremenljivk, zato jo moramo odvajati za vsako spremenljivko posebej. Ker nam odvod ene spremenljivke pove kako se funkcija obnaša samo po tej spremenljivki, temu rečemu delni odvod.
 	
 	Izračunamo delne odvode za to funkcijo:
@@ -39,7 +39,7 @@
 	Da najdemo rešitev, moramo ugotoviti kdaj so vsi odvodi enaki 0. Tega ne znamo (možno je z uporabo matrik, ampak ne znamo), zato se bomo reševanja lotili z gradientnim spustom.
 
 	\section*{Gradientni spust}
-	Gradient nam pove smer največjega naraščanja funkcije. Gradient funkcije f(x) je definiran kot:
+	Gradient nam pove smer največjega naraščanja funkcije. Gradient funkcije f(x) je vektor definiran kot:
 	$$\nabla f = \begin{pmatrix}\frac{\partial f}{\partial x_{1}} & \frac{\partial f}{\partial x_{2}} & \frac{\partial f}{\partial x_{3}} & ... & \frac{\partial f}{\partial x_{n}}\end{pmatrix}$$
 	
 	V našem primeru je gradientni spust:
