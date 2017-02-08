@@ -8,17 +8,18 @@ import tkinter as tk
 from gradient_decent import calculate_gradient, get_data
 
 data = get_data()
+data = data[:20]
 
-# params = [0.8, 0.4, 0.4, 1, -1.4, -1]
-params = [10, 0, 10, 0, 0, 0]
+# params = [10, 0, 10, 0, 0, 0]
+params = [10, 0, 10, 0, 0, -300]
 step = 1e-6
 
 if __name__ == '__main__':
     window = tk.Frame()
     window.master.title("Gradientni spust")
 
-    x = np.linspace(-15, 15, 1000)
-    y = np.linspace(-15, 15, 1000)
+    x = np.linspace(-17, 15, 1000)
+    y = np.linspace(-15, 17, 1000)
     x, y = np.meshgrid(x, y)
     fig = Figure(figsize=(8, 8), dpi=100)
 
@@ -37,7 +38,7 @@ if __name__ == '__main__':
     toolbar.update()
     canvas._tkcanvas.pack()
 
-    for i in range(100):
+    for i in range(200):
         gradient = calculate_gradient(data, params, step)
         for j in range(len(params)):
             params[j] -= gradient[j]
@@ -48,6 +49,7 @@ if __name__ == '__main__':
         ax1.clear()
 
         window.update()
+
     ax1.contour(x, y, (params[0]*x**2 + params[1]*x*y + params[2]*y**2 + params[3]*x + params[4]*y + params[5]), [0])
     ax2.scatter(points_x, points_y)
     canvas.draw()
