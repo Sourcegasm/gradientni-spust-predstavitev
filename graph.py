@@ -17,8 +17,8 @@ if __name__ == '__main__':
     window = tk.Frame()
     window.master.title("Gradientni spust")
 
-    x = np.linspace(-5, 5, 1000)
-    y = np.linspace(-5, 5, 1000)
+    x = np.linspace(-15, 15, 1000)
+    y = np.linspace(-15, 15, 1000)
     x, y = np.meshgrid(x, y)
     fig = Figure(figsize=(8, 8), dpi=100)
 
@@ -38,7 +38,6 @@ if __name__ == '__main__':
     canvas._tkcanvas.pack()
 
     for i in range(100):
-        print(params)
         gradient = calculate_gradient(data, params, step)
         for j in range(len(params)):
             params[j] -= gradient[j]
