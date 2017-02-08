@@ -7,12 +7,14 @@ import tkinter as tk
 
 from gradient_decent import calculate_gradient, get_data
 
-data = get_data()
-data = data[:20]
+
+data = get_data('data/mars_full.csv')
+# data = get_data()
+# data = data[:20]
 
 # params = [10, 0, 10, 0, 0, 0]
 params = [10, 0, 10, 0, 0, -300]
-step = 1e-6
+step = 1e-7
 
 if __name__ == '__main__':
     window = tk.Frame()
