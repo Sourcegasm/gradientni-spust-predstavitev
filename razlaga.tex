@@ -10,22 +10,27 @@
 
 \begin{document}
 	\section*{Linearna regresija}
-	Imamo $N$ točk, za katere želimo najti elipso ki se tem točkam najbolj prilega.
+	\paragraph{}
+	Imamo $N$ točk krožnice nekega planeta, za katere želimo najti krožnico (elipso), ki se tem točkam najbolj prilega.
 	$$T_1(x_1, y_1), T_2(x_2, y_2) \ldots, T_n(x_n, y_n)$$
 
 	Zapišemo splošno enačbo za krivulje 2. reda:
 	$$Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$$
-
+	
+	\paragraph{}
 	Ker je točk preveč, ne moremo najti elipse, na kateri bodo ležale vse točke. Zato pokušamo najti stožnico (elipso), ki se točkam najbolje prilega. Za točko $T_i$ velja:
 	$$\varepsilon_i = Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F$$
 	Pri čemer je $\varepsilon_i$ napaka v tej točki. Iščemo najboljše parametre $A$, $B$, $C$, $D$, $E$ in $F$, tako da bo skupna napaka čim manjša.
-
+	
+	\paragraph{}
 	Ko izračunamo napako za vsako točko dobimo vektor napak. Zanima nas skupna velikost napake, kar je 'dolžina' tega vektorja.
 	$$\varepsilon = \sqrt{\sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2}$$
-
+	
+	\paragraph{}
 	Želimo najti minimum te funkcije, ki je odvisna od 6-ih spremenljivk. Če iščemo minimum te funkcije, je enako kot da bi iskali minimum $\varepsilon^{2}$.
 	$$\varepsilon^2(A, B, C, D, E, F) = \sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2$$
-
+	
+	\paragraph{}
 	Funkcija je odvisna od večih spremenljivk, zato jo moramo odvajati za vsako spremenljivko posebej. Ker nam odvod ene spremenljivke pove kako se funkcija obnaša samo po tej spremenljivki, temu rečemu delni odvod.
 	
 	Izračunamo delne odvode za to funkcijo:
@@ -35,10 +40,12 @@
 	$$\frac{\partial \varepsilon}{\partial D} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_i)$$
 	$$\frac{\partial \varepsilon}{\partial E} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(y_i)$$
 	$$\frac{\partial \varepsilon}{\partial F} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)$$
-
+	
+	\paragraph{}
 	Da najdemo rešitev, moramo ugotoviti kdaj so vsi odvodi enaki 0. Tega ne znamo (možno je z uporabo matrik, ampak ne znamo), zato se bomo reševanja lotili z gradientnim spustom.
 
 	\section*{Gradientni spust}
+	\paragraph{}
 	Gradient nam pove smer največjega naraščanja funkcije. Gradient funkcije f(x) je vektor definiran kot:
 	$$\nabla f = \begin{pmatrix}\frac{\partial f}{\partial x_{1}} & \frac{\partial f}{\partial x_{2}} & \frac{\partial f}{\partial x_{3}} & ... & \frac{\partial f}{\partial x_{n}}\end{pmatrix}$$
 	
@@ -53,6 +60,7 @@
 	\frac{\partial \varepsilon}{\partial F}
 	\end{pmatrix}$$
 	
+	\paragraph{}
 	Ker iščemo minimum funckije se bomo premikali v nasprotno smer gradienta. Spremembo spremenljivke $A$ lahko zapišemo kot:
 	$$\Delta A = -(\nabla \varepsilon)_1 \cdot \lambda$$
 	kjer $\lambda$ predstavlja velikost permika. 
@@ -73,7 +81,8 @@
 	$$ F = F + \Delta F$$
 	
 	\paragraph{}
-	S tem smo se premaknili za en korak bližje minimumu funkcije, to pomeni enačbi elipse, ki jo iščemo. Ta postopek ponovimo še n-krat. Večkrat ko ga ponovimo, bolj natančen bo naš rezultat. 
+	S tem smo se premaknili za en korak bližje minimumu funkcije, to pomeni enačbi elipse, ki jo iščemo. Ta postopek ponovimo še n-krat. Večkrat ko ga ponovimo, bolj natančen bo naš rezultat.
+	 
 	\paragraph{}
 	Natančnost našega rezultata je odvisna tudi od $\lambda$ (velikost premika) in začetnih vrednost spremenljivk $A, B, C, D, E$ in $F$. Z manjšo velikostjo premika bo rezultat bolj natančen, vendar bomo morali postopek večkrat ponoviti. Ker s postopkom isčemo samo lokalne minimume, nam začetna vrednost spremenljivk določi kateri minimum bomo našli.
 
