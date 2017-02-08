@@ -10,8 +10,8 @@ from gradient_decent import calculate_gradient, get_data
 data = get_data()
 
 # params = [0.8, 0.4, 0.4, 1, -1.4, -1]
-params = [1, 0, 0.1, 0.5, -1, -0.5]
-step = 1e-4
+params = [10, 0, 10, 0, 0, 0]
+step = 1e-6
 
 if __name__ == '__main__':
     window = tk.Frame()
@@ -37,7 +37,8 @@ if __name__ == '__main__':
     toolbar.update()
     canvas._tkcanvas.pack()
 
-    for i in range(200):
+    for i in range(100):
+        print(params)
         gradient = calculate_gradient(data, params, step)
         for j in range(len(params)):
             params[j] -= gradient[j]
