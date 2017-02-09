@@ -86,6 +86,7 @@ def select_data():
 if __name__ == '__main__':
     data, earth_data, params, step = select_data()
     print('Procesing...')
+
     window = tk.Frame()
     window.master.title("Gradientni spust")
 
