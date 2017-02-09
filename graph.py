@@ -14,7 +14,7 @@ while not done:
         print('Select input data set:')
         print(' 1    Mars half year')
         print(' 2    Mars full (whole year measured every Earth month)')
-        print(' 3    Mars small (every 4th point of \'Mars full\')')
+        print(' 3    Mars small (every fourth point of \'Mars full\')')
         print(' 4    Earth full (every 14 days)')
         print(' 5    Saturn full (every 100 days since 1987 = one Saturn year)')
         print(' 6    custom file path')
