@@ -16,13 +16,29 @@ if __name__ == '__main__':
 		print('Converts csv data from elyptic to rectangular coordinate system.')
 		print('Usage: convert.py [input_file] [output_file] {scv_separator}')
 		print('Default separator: \' \'')
+		print('If separator is \'geogebra\', output will be set of geogebra points.')
 	else:
 		with open(sys.argv[1], 'r') as input_file, open(sys.argv[2], 'w') as output_file:
+
+			if len(sys.argv) >= 3 and sys.argv[3] == 'geogebra':
+				output_file.write('{')
+
+			i = 0
 			for line in input_file:
 				x, y = convert_line(line)
 
 				if len(sys.argv) >= 3:
-					output_file.write(sys.argv[3].join([str(x), str(y)])+'\n')
+					if sys.argv[3] == 'geogebra':
+						if i > 0:
+							output_file.write(',')
+						output_file.write('('+','.join([str(x), str(y)])+')')
+					else:
+						output_file.write(sys.argv[3].join([str(x), str(y)])+'\n')
 				else:
 					output_file.write(' '.join([str(x), str(y)])+'\n')
+
+				i += 1
+
+			if len(sys.argv) >= 3 and sys.argv[3] == 'geogebra':
+				output_file.write('}')
 

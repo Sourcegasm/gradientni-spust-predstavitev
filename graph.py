@@ -7,14 +7,51 @@ import tkinter as tk
 
 from gradient_decent import calculate_gradient, get_data
 
+done = False
 
-data = get_data('data/mars_full.csv')
-# data = get_data()
-# data = data[:20]
+while not done:
+    try:
+        print('Select input data set:')
+        print(' 1    Mars full (0.5 year)')
+        print(' 2    Mars small (45 random coordinates)')
+        print(' 3    Earth full (every 14 days)')
+        print(' 4    Saturn full (every 100 days since 1987 - one Saturn year)')
+        print(' 5    custom file path')
 
-# params = [10, 0, 10, 0, 0, 0]
-params = [10, 0, 10, 0, 0, -300]
-step = 1e-7
+        answer = int(input('Your selection: '))
+        
+        if answer == 1: data = get_data('data/mars_full.csv')
+        elif answer == 2:
+            data = get_data('data/mars.csv')
+            data = data[:25] + data[30:45]
+        elif answer == 3: data = get_data('data/earth.csv')
+        elif answer == 4: data = get_data('data/saturn.csv')
+        elif answer == 5: data = get_data(input('Path: '))
+        else: continue
+
+        print()
+        print('Select start parameters:')
+        print(' 1   default [10, 0, 10, 0, 0, 0]')
+        print(' 2   Mars approximation [-100, 0, -100, -300, 200, 30000]')
+        print(' 3   custom params')
+
+        answer = int(input('Your selection: '))
+        if answer == 1: params = [10, 0, 10, 0, 0, -300]
+        elif answer == 2: params = [-100, 0, -100, -300, 200, 30000]
+        elif answer == 3: params = [int(i) for i in input('Params separated by ,: ').split()]
+        else: continue
+
+        print()
+        try:
+            step = float(input('Define step (default is 1e-6): '))
+        except:
+            step = 1e-6
+        done = True
+    except ValueError:
+        print('Invalid input!')
+        print()
+
+print('Procesing...')
 
 if __name__ == '__main__':
     window = tk.Frame()
