@@ -12,21 +12,21 @@ done = False
 while not done:
     try:
         print('Select input data set:')
-        print(' 1    Mars full (0.5 year)')
-        print(' 2    Mars small (45 random coordinates)')
-        print(' 3    Earth full (every 14 days)')
-        print(' 4    Saturn full (every 100 days since 1987 - one Saturn year)')
-        print(' 5    custom file path')
+        print(' 1    Mars half year')
+        print(' 2    Mars full (whole year measured every Earth month)')
+        print(' 3    Mars small (every 4th point of \'Mars full\')')
+        print(' 4    Earth full (every 14 days)')
+        print(' 5    Saturn full (every 100 days since 1987 = one Saturn year)')
+        print(' 6    custom file path')
 
         answer = int(input('Your selection: '))
         
-        if answer == 1: data = get_data('data/mars_full.csv')
-        elif answer == 2:
-            data = get_data('data/mars.csv')
-            data = data[:25] + data[30:45]
-        elif answer == 3: data = get_data('data/earth.csv')
-        elif answer == 4: data = get_data('data/saturn.csv')
-        elif answer == 5: data = get_data(input('Path: '))
+        if answer == 1: data = get_data('data/mars_half_year.csv')
+        elif answer == 2: data = get_data('data/mars_full.csv')
+        elif answer == 3: data = get_data('data/mars_full.csv')[::4]
+        elif answer == 4: data = get_data('data/earth.csv')
+        elif answer == 5: data = get_data('data/saturn.csv')
+        elif answer == 6: data = get_data(input('Path: '))
         else: continue
 
         print()
@@ -38,7 +38,7 @@ while not done:
         answer = int(input('Your selection: '))
         if answer == 1: params = [10, 0, 10, 0, 0, -300]
         elif answer == 2: params = [-100, 0, -100, -300, 200, 30000]
-        elif answer == 3: params = [int(i) for i in input('Params separated by ,: ').split()]
+        elif answer == 3: params = [int(i) for i in input('Params separated by ,: ').split(',')]
         else: continue
 
         print()
@@ -51,6 +51,7 @@ while not done:
         print('Invalid input!')
         print()
 
+print()
 print('Procesing...')
 
 if __name__ == '__main__':
@@ -98,6 +99,8 @@ if __name__ == '__main__':
 
     string = '{0}*x^2{1:+}*x*y{2:+}*y^2{3:+}*x{4:+}*y{5:+} = 0'.format(*params)
     string = string.replace('+', ' + ').replace('-', ' - ')
+    print()
+    print('Result:')
     print(string)
 
     window.mainloop()
