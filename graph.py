@@ -7,8 +7,12 @@ import tkinter as tk
 
 from gradient_decent import calculate_gradient, get_data
 
+<<<<<<< HEAD
 if __name__ == '__main__':
 
+=======
+def select_data():
+>>>>>>> 5105110f90e796dec0d99f39383bb889e7039d35
     done = False
     while not done:
         try:
@@ -18,6 +22,7 @@ if __name__ == '__main__':
             print(' 3    Mars small (every fourth point of \'Mars full\')')
             print(' 4    Earth full (every 14 days)')
             print(' 5    Saturn full (every 100 days since 1987 = one Saturn year)')
+<<<<<<< HEAD
             print(' 6    Halley full (every 30 days 1984 - 1987)')
             print(' 7    custom file path')
 
@@ -68,10 +73,42 @@ if __name__ == '__main__':
             print(' Earth: 1e-6')
             print(' Saturn: 1e-10')
             print(' Halley: 1e-9')
+=======
+            print(' 6    custom file path')
+
+            answer = int(input('Your selection: '))
+            
+            if answer == 1: data = get_data('data/mars_half_year.csv')
+            elif answer == 2: data = get_data('data/mars_full.csv')
+            elif answer == 3: data = get_data('data/mars_full.csv')[::4]
+            elif answer == 4: data = get_data('data/earth.csv')
+            elif answer == 5: data = get_data('data/saturn.csv')
+            elif answer == 6: data = get_data(input('Path: '))
+            else: continue
+
+            params_list = [[10, 0, 10, 0, 0, -300], [-100, 0, -100, -300, 200, 30000]]
+
+            print('\nSelect start parameters:')
+            print(' 1   default', params_list[0])
+            print(' 2   Mars approximation', params_list[1])
+            print(' 3   custom params')
+
+            try:
+                answer = int(input('Your selection: '))
+            except:
+                answer = 1
+            if answer == 1: params = params_list[0]
+            elif answer == 2: params = params_list[1]
+            elif answer == 3: params = [float(i) for i in input('Params separated by ,: ').split(',')]
+            else: continue
+
+            print()
+>>>>>>> 5105110f90e796dec0d99f39383bb889e7039d35
             try:
                 step = float(input('Define step (default is 1e-6): '))
             except:
                 step = 1e-6
+<<<<<<< HEAD
 
             # load Earth data
             earth_data = get_data('data/earth.csv')
@@ -84,6 +121,18 @@ if __name__ == '__main__':
     print()
     print('Procesing...')
 
+=======
+            done = True
+        except ValueError:
+            print('Invalid input!\n')
+            
+    return data, params, step
+
+
+if __name__ == '__main__':
+    data, params, step = select_data()
+    print('Procesing...')
+>>>>>>> 5105110f90e796dec0d99f39383bb889e7039d35
     window = tk.Frame()
     window.master.title("Gradientni spust")
 
