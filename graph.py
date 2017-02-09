@@ -7,8 +7,7 @@ import tkinter as tk
 
 from gradient_decent import calculate_gradient, get_data
 
-if __name__ == '__main__':
-
+def select_data():
     done = False
     while not done:
         try:
@@ -68,6 +67,7 @@ if __name__ == '__main__':
             print(' Earth: 1e-6')
             print(' Saturn: 1e-10')
             print(' Halley: 1e-9')
+
             try:
                 step = float(input('Define step (default is 1e-6): '))
             except:
@@ -80,10 +80,12 @@ if __name__ == '__main__':
         except ValueError:
             print('Invalid input!')
             print()
+    return data, earth_data, params, step
 
-    print()
+
+if __name__ == '__main__':
+    data, earth_data, params, step = select_data()
     print('Procesing...')
-
     window = tk.Frame()
     window.master.title("Gradientni spust")
 
