@@ -4,6 +4,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolb
 from matplotlib.figure import Figure
 import numpy as np
 import tkinter as tk
+import time
 
 from gradient_decent import calculate_gradient, get_data
 
@@ -43,7 +44,7 @@ def select_data():
             print('Select start parameters:')
             print(' 1   default [10, 0, 10, 0, 0, 0]')
             print(' 2   Mars approximation [-100, 0, -100, -300, 200, 30000]')
-            print(' 3   Saturn approximation [-5000, 0, -5000, 2000, -70000, 72000000]')
+            print(' 3   Saturn approximation [5541730, 107633, 6468945, 1673, -90184, 72001305]')
             print(' 4   Halley approximation [-1000, -1400, -600, -25000, 30000, 230000]')
             print(' 5   custom params')
 
@@ -53,11 +54,12 @@ def select_data():
             elif answer == 2:
                 params = [-100, 0, -100, -300, 200, 30000]
             elif answer == 3:
-                params = [-5000, 0, -5000, 2000, -70000, 72000000]
+                params = [5541730, 107633, 6468945, 1673, -90184, 72001305]
+                # params = [-5000, 0, -5000, 2000, -70000, 72000000]
             elif answer == 4:
                 params = [-1000, -1400, -600, -25000, 30000, 230000]
             elif answer == 5:
-                params = [int(i) for i in input('Params separated by ,: ').split(',')]
+                params = [float(i) for i in input('Params separated by ,: ').split(',')]
             else:
                 continue
 
@@ -65,7 +67,7 @@ def select_data():
             print('Recommended steps:')
             print(' Mars: 1e-7')
             print(' Earth: 1e-6')
-            print(' Saturn: 1e-10')
+            print(' Saturn: 7e-11')
             print(' Halley: 1e-9')
 
             try:
@@ -133,6 +135,8 @@ if __name__ == '__main__':
         canvas.draw()
         ax1.clear()
 
+        time.sleep(0.1)
+
         window.update()
 
     ax1.contour(x, y, (params[0]*x**2 + params[1]*x*y + params[2]*y**2 + params[3]*x + params[4]*y + params[5]), [0])
@@ -146,5 +150,6 @@ if __name__ == '__main__':
     print()
     print('Result:')
     print(string)
+    print(params)
 
     window.mainloop()
