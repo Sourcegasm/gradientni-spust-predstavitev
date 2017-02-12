@@ -9,6 +9,8 @@ import time
 from gradient_decent import calculate_gradient
 from select_data import select_data
 
+# set to True to speed up animations
+DEBUG = False
 
 if __name__ == '__main__':
     data, earth_data, params, step = select_data()
@@ -45,11 +47,16 @@ if __name__ == '__main__':
     toolbar.update()
     canvas._tkcanvas.pack()
 
-    for i in range(200):
+    N = 100
+    for i in range(N):
+        print('\rProgress: [' + '#' * int(i / N * 20) + ' ' * (20 - int(i / N * 20)) + ']', end=' ')
         gradient = calculate_gradient(data, params, step)
-        if sum((abs(i) for i in gradient)) <= 1e-3:
-            print(i, 'steps')
+
+        error = sum((abs(i) for i in gradient))
+        if error <= len(data) * 1e-4:
+            print('\n', i, 'steps')
             break
+
         for j in range(len(params)):
             params[j] -= gradient[j]
 
@@ -60,9 +67,12 @@ if __name__ == '__main__':
         canvas.draw()
         ax1.clear()
 
-        time.sleep(0.1)
+        if not DEBUG:
+            time.sleep(0.1)
 
         window.update()
+
+    print('\r')
 
     ax1.contour(x, y, (params[0]*x**2 + params[1]*x*y + params[2]*y**2 + params[3]*x + params[4]*y + params[5]), [0])
     ax2.scatter(points_x, points_y, color='k')
@@ -72,9 +82,8 @@ if __name__ == '__main__':
 
     string = '{0}*x^2{1:+}*x*y{2:+}*y^2{3:+}*x{4:+}*y{5:+} = 0'.format(*params)
     string = string.replace('+', ' + ').replace('-', ' - ')
-    print()
-    print('Result:')
+    
+    print('\nResult:')
     print(string)
-    print(params)
 
     window.mainloop()
