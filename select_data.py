@@ -35,8 +35,7 @@ def select_data():
             else:
                 continue
 
-            print()
-            print('Select start parameters:')
+            print('\nSelect start parameters:')
             print(' 1   default [10, 0, 10, 0, 0, 0]')
             print(' 2   Mars approximation [-100, 0, -100, -300, 200, 30000]')
             print(' 3   Mars half year wrong minimum (hyperbola) [-1017000, 39000, -299600, -2983000, 561000, 23157000]')
@@ -45,7 +44,10 @@ def select_data():
             print(' 6   Halley approximation [-1000, -1400, -600, -25000, 30000, 230000]')
             print(' 7   custom params')
 
-            answer = int(input('Your selection: '))
+            try: 
+                answer = int(input('Your selection: '))
+            except ValueError:
+                params = [10, 0, 10, 0, 0, -300]
             if answer == 1:
                 params = [10, 0, 10, 0, 0, -300]
             elif answer == 2:
@@ -63,8 +65,7 @@ def select_data():
             else:
                 continue
 
-            print()
-            print('Recommended steps:')
+            print('\nRecommended steps:')
             print(' Mars: 1e-7')
             print(' Earth: 1e-6')
             print(' Saturn: 7e-11')
@@ -72,7 +73,7 @@ def select_data():
 
             try:
                 step = float(input('Define step (default is 1e-6): '))
-            except:
+            except ValueError:
                 step = 1e-6
 
             # load Earth data
