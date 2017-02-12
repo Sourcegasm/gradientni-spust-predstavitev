@@ -44,9 +44,10 @@ def select_data():
             print('Select start parameters:')
             print(' 1   default [10, 0, 10, 0, 0, 0]')
             print(' 2   Mars approximation [-100, 0, -100, -300, 200, 30000]')
-            print(' 3   Saturn approximation [5541730, 107633, 6468945, 1673, -90184, 72001305]')
-            print(' 4   Halley approximation [-1000, -1400, -600, -25000, 30000, 230000]')
-            print(' 5   custom params')
+            print(' 3   Mars half year wrong minimum (hyperbola) [-1017000, 39000, -299600, -2983000, 561000, 23157000]')
+            print(' 4   Saturn approximation [5541730, 107633, 6468945, 1673, -90184, 72001305]')
+            print(' 5   Halley approximation [-1000, -1400, -600, -25000, 30000, 230000]')
+            print(' 6   custom params')
 
             answer = int(input('Your selection: '))
             if answer == 1:
@@ -54,11 +55,12 @@ def select_data():
             elif answer == 2:
                 params = [-100, 0, -100, -300, 200, 30000]
             elif answer == 3:
-                params = [5541730, 107633, 6468945, 1673, -90184, 72001305]
-                # params = [-5000, 0, -5000, 2000, -70000, 72000000]
+                params = [-1017000, 39000, -299600, -2983000, 561000, 23157000]
             elif answer == 4:
-                params = [-1000, -1400, -600, -25000, 30000, 230000]
+                params = [5541730, 107633, 6468945, 1673, -90184, 72001305]
             elif answer == 5:
+                params = [-1000, -1400, -600, -25000, 30000, 230000]
+            elif answer == 6:
                 params = [float(i) for i in input('Params separated by ,: ').split(',')]
             else:
                 continue
