@@ -3,6 +3,7 @@ Predstavitev gradientnega spusta po domače.
 
 ## Struktura
 - Program za animiranje spremebe stožnice, ko se približujemo pravilnemu rezultatu.
+- Mathematica notebok z primeri za ponazoritev.
 - Tekst z razlago.
 - Podatki o legah planetov, kometov in raziskovalnih sond.
 
