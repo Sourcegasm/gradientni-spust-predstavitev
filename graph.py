@@ -6,7 +6,7 @@ import numpy as np
 import tkinter as tk
 import time
 
-from gradient_decent import calculate_gradient
+from gradient_descent import calculate_gradient
 from select_data import select_data
 
 # set to True to speed up animations

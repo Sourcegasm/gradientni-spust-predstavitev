@@ -1,4 +1,4 @@
-from gradient_decent import get_data
+from gradient_descent import get_data
 
 def select_data():
     done = False
