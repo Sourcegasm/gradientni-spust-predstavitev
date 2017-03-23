@@ -12,13 +12,13 @@
 
     \section*{Ekliptični koordinatni sistem}
     \paragraph{}
-    Eden izmed koordinatnih sistemov za določanje lege nebesnih teles. Lokacijo določimo s tremi podatki. Ker so koordinate definirane glede na zemljino 
+    Eden izmed koordinatnih sistemov za določanje lege nebesnih teles. Lokacijo določimo s tremi podatki. Ker so koordinate definirane glede na zemljino
     \begin{description}
         \item[$l$] longtituda, ekliptična dolžina, od $0^\circ$ do $360^\circ$.
         \item[$b$] latituda, ekliptična širina od $-90^\circ$ do $90^\circ$.
         \item[$r$] razdalja
     \end{description}
-    
+
     \paragraph{}
     V kartezične koordinate podatke pretvorimo po formulah:
     $$x = r \cos b \cos l$$
@@ -56,13 +56,13 @@
 	\paragraph{}
 	Funkcija je odvisna od večih spremenljivk, zato jo moramo odvajati za vsako spremenljivko posebej. Ker nam odvod ene spremenljivke pove kako se funkcija obnaša samo po tej spremenljivki, temu rečemu delni odvod.
 
-	$$\frac{\partial \varepsilon}{\partial a} = 
+	$$\frac{\partial \varepsilon}{\partial a} =
 		\sum_{i=1}^{N} 2 \frac{\partial (a x_i - b - y_i)}{\partial a} =
 		2 \sum_{i=1}^{N} (a x_i - b - y_i)x_i$$
 
-	$$\frac{\partial \varepsilon}{\partial b} = 
+	$$\frac{\partial \varepsilon}{\partial b} =
 		\sum_{i=1}^{N} 2 \frac{\partial (a x_i - b - y_i)}{\partial b} =
-		2 \sum_{i=1}^{N} (a x_i - b - y_i)(-1) = -2 \sum_{i=1}^{N} (a x_i - b - y_i)$$		
+		2 \sum_{i=1}^{N} (a x_i - b - y_i)(-1) = -2 \sum_{i=1}^{N} (a x_i - b - y_i)$$
 
 	Rešitev najdemo tako, da ugotovimo, pri katerih $a$ in $b$ sta odvoda enaka 0. To lahko rešimo z uporabmo matrik, vendar tega ne zamo, zato se bomo tega lotili s primitvno metodo gradientnega spusta.
 
@@ -74,23 +74,23 @@
 
 	Zapišemo splošno enačbo za krivulje 2. reda:
 	$$Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$$
-	
+
 	\paragraph{}
 	Ker je točk preveč, ne moremo najti elipse, na kateri bodo ležale vse točke. Zato pokušamo najti stožnico (elipso), ki se točkam najbolje prilega. Za točko $T_i$ velja:
 	$$\varepsilon_i = Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F$$
 	Pri čemer je $\varepsilon_i$ napaka v tej točki. Iščemo najboljše parametre $A$, $B$, $C$, $D$, $E$ in $F$, tako da bo skupna napaka čim manjša.
-	
+
 	\paragraph{}
 	Ko izračunamo napako za vsako točko dobimo vektor napak. Zanima nas skupna velikost napake, kar je 'dolžina' tega vektorja.
 	$$\varepsilon = \sqrt{\sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2}$$
-	
+
 	\paragraph{}
 	Želimo najti minimum te funkcije, ki je odvisna od 6-ih spremenljivk. Če iščemo minimum te funkcije, je enako kot da bi iskali minimum $\varepsilon^{2}$.
 	$$\varepsilon^2(A, B, C, D, E, F) = \sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2$$
-	
+
 	\paragraph{}
 	Funkcija je odvisna od večih spremenljivk, zato jo moramo odvajati za vsako spremenljivko posebej. Ker nam odvod ene spremenljivke pove kako se funkcija obnaša samo po tej spremenljivki, temu rečemu delni odvod.
-	
+
 	Izračunamo delne odvode za to funkcijo:
 	$$\frac{\partial \varepsilon}{\partial A} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_i^2)$$
 	$$\frac{\partial \varepsilon}{\partial B} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_iy_i)$$
@@ -98,7 +98,7 @@
 	$$\frac{\partial \varepsilon}{\partial D} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_i)$$
 	$$\frac{\partial \varepsilon}{\partial E} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(y_i)$$
 	$$\frac{\partial \varepsilon}{\partial F} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)$$
-	
+
 	\paragraph{}
 	Da najdemo rešitev, moramo ugotoviti kdaj so vsi odvodi enaki 0. Tega ne znamo (možno je z uporabo matrik, ampak ne znamo), zato se bomo reševanja lotili z gradientnim spustom.
 
@@ -106,9 +106,9 @@
 	\paragraph{}
 	Gradient nam pove smer največjega naraščanja funkcije. Gradient funkcije f(x) je vektor definiran kot:
 	$$\nabla f = \begin{pmatrix}\frac{\partial f}{\partial x_{1}} & \frac{\partial f}{\partial x_{2}} & \frac{\partial f}{\partial x_{3}} & ... & \frac{\partial f}{\partial x_{n}}\end{pmatrix}$$
-	
+
 	V našem primeru je gradientni spust:
-	$$\nabla \varepsilon = 
+	$$\nabla \varepsilon =
 	\begin{pmatrix}
 	\frac{\partial \varepsilon}{\partial A} &
 	\frac{\partial \varepsilon}{\partial B} &
@@ -117,19 +117,19 @@
 	\frac{\partial \varepsilon}{\partial E} &
 	\frac{\partial \varepsilon}{\partial F}
 	\end{pmatrix}$$
-	
+
 	\paragraph{}
 	Ker iščemo minimum funckije se bomo premikali v nasprotno smer gradienta. Spremembo spremenljivke $A$ lahko zapišemo kot:
 	$$\Delta A = -(\nabla \varepsilon)_1 \cdot \lambda$$
-	kjer $\lambda$ predstavlja velikost permika. 
-	
+	kjer $\lambda$ predstavlja velikost permika.
+
 	Za ostale spremenljivke velja podobno:
 	$$\Delta B = -(\nabla \varepsilon)_2 \cdot \lambda$$
 	$$\Delta C = -(\nabla \varepsilon)_3 \cdot \lambda$$
 	$$\Delta D = -(\nabla \varepsilon)_4 \cdot \lambda$$
 	$$\Delta E = -(\nabla \varepsilon)_5 \cdot \lambda$$
 	$$\Delta F = -(\nabla \varepsilon)_6 \cdot \lambda$$
-	
+
 	Naše nove spremenljivke so:
 	$$ A = A + \Delta A$$
 	$$ B = B + \Delta B$$
@@ -137,11 +137,17 @@
 	$$ D = D + \Delta D$$
 	$$ E = E + \Delta E$$
 	$$ F = F + \Delta F$$
-	
+
 	\paragraph{}
 	S tem smo se premaknili za en korak bližje minimumu funkcije, to pomeni enačbi elipse, ki jo iščemo. Ta postopek ponovimo še n-krat. Večkrat ko ga ponovimo, bolj natančen bo naš rezultat.
-	 
+
 	\paragraph{}
 	Natančnost našega rezultata je odvisna tudi od $\lambda$ (velikost premika) in začetnih vrednost spremenljivk $A, B, C, D, E$ in $F$. Z manjšo velikostjo premika bo rezultat bolj natančen, vendar bomo morali postopek večkrat ponoviti. Ker s postopkom isčemo samo lokalne minimume, nam začetna vrednost spremenljivk določi kateri minimum bomo našli.
+
+    \section*{Logistična regresija}
+    \paragraph{}
+    Glavna razlika med logistično in linearno regesijo je, da pri linearni regresiji določamo zvezno spremenljivko ($y$ je odvisen od $x$), medtem ko nam pri logistični regresiji model vrne kakšna je verjetnost, da vhodni podatki sodijo v določeno kategorijo.
+    Zato se logistična regresija uporablja za klasifikacijo (npr. prepoznavanje števk idr.).
+
 
 \end{document}
