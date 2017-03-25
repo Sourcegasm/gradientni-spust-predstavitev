@@ -10,28 +10,18 @@
 
 \begin{document}
 
-    \section*{Ekliptični koordinatni sistem}
-    \paragraph{}
-    Eden izmed koordinatnih sistemov za določanje lege nebesnih teles. Lokacijo določimo s tremi podatki. Ker so koordinate definirane glede na zemljino
-    \begin{description}
-        \item[$l$] longtituda, ekliptična dolžina, od $0^\circ$ do $360^\circ$.
-        \item[$b$] latituda, ekliptična širina od $-90^\circ$ do $90^\circ$.
-        \item[$r$] razdalja
-    \end{description}
-
-    \paragraph{}
-    V kartezične koordinate podatke pretvorimo po formulah:
-    $$x = r \cos b \cos l$$
-    $$y = r \cos b \sin l$$
-    $$z = r \sin b$$
-
-    \paragraph{}
-    Ker tiri vseh planetov ležijo v (skoraj) isti ravnini, bomo $z$ koordianto zanemarili.
-
 	\section*{Linearna regresija}
-	Predstavljajmo si, izvajamo fizikalni poskus. Imamo vzmet, na kateri merimo raztezek v odvisnosti od sile, s katero napenjamo vzmet. Želimo izračunati koeficient vzmeti. Velja Hookov zakon.
+	\paragraph{}
+	Predstavljajmo si, izvajamo fizikalni poskus. Imamo vzmet, na kateri merimo raztezek v odvisnosti od sile, s katero napenjamo vzmet (na vzmet obešamo uteži z znano težo in merimo raztezek). 
 
-	$$F = k x$$
+	\footnote{Podatki pridobljeni iz: \texttt{http://www.clemson.edu/ces/phoenix/labs/124/shm/}}
+	\begin{tabular}{l|lllll}
+		$F$ {[}N{]}  & 1  & 2  & 3  & 4  & 5  \\ \hline
+		$x$ {[}cm{]} & 10 & 20 & 35 & 55 & 80
+	\end{tabular}
+
+	\paragraph{}
+	Velja Hookov zakon, $F = k x$, torej sta $x$ in $F$ med seboj linearno odvisna. Poskušali bomo najti premico, ki se bo najbolje prilegala danim točkam v ravnini.
 
 	\paragraph{}
 	Če imamo 2 točki $T_1(x_1, y_1), T_2(x_2, y_2)$, lahko brez težav najdemo premico, ki gre točno skozi niju. Če pa je točk več, ni nujno, da obstaja premica, ki gre skozi vse točke.
@@ -51,6 +41,9 @@
 
 	\paragraph{}
 	Naš cilj je, da minimiziramo to napako. Minimum funkcije pa najdemo tako, da izračunamo, kdaj je odvod funkcije enak 0.
+
+	\subsection{Odvodi}
+	Kaj so odvodi? Geometrijski pomen, ničle odvoda?
 
 	\subsection*{Delni odvodi}
 	\paragraph{}
@@ -148,6 +141,26 @@
     \paragraph{}
     Glavna razlika med logistično in linearno regesijo je, da pri linearni regresiji določamo zvezno spremenljivko ($y$ je odvisen od $x$), medtem ko nam pri logistični regresiji model vrne kakšna je verjetnost, da vhodni podatki sodijo v določeno kategorijo.
     Zato se logistična regresija uporablja za klasifikacijo (npr. prepoznavanje števk idr.).
+
+
+    \section*{Dodatno}
+    \subsection*{Ekliptični koordinatni sistem}
+    \paragraph{}
+    Eden izmed koordinatnih sistemov za določanje lege nebesnih teles. Lokacijo določimo s tremi podatki. Ker so koordinate definirane glede na ravnino zemljine orbite, je $z$ koordinata za Zemljo vedno enaka 0.
+    \begin{description}
+        \item[$l$] longtituda, ekliptična dolžina, od $0^\circ$ do $360^\circ$.
+        \item[$b$] latituda, ekliptična širina od $-90^\circ$ do $90^\circ$.
+        \item[$r$] razdalja
+    \end{description}
+
+    \paragraph{}
+    V kartezične koordinate podatke pretvorimo po formulah:
+    $$x = r \cos b \cos l$$
+    $$y = r \cos b \sin l$$
+    $$z = r \sin b$$
+
+    \paragraph{}
+    Ker tiri vseh planetov ležijo v (skoraj) isti ravnini, bomo $z$ koordianto zanemarili.
 
 
 \end{document}
