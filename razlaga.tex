@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{mathtools}
 \usepackage{amsmath}
+\usepackage{tikz}
 
 \setlength{\parindent}{0px}
 \setlength{\parskip}{10px}
@@ -12,7 +13,7 @@
 
 	\section*{Linearna regresija}
 	\paragraph{}
-	Predstavljajmo si, da izvajamo fizikalni poskus. Imamo vzmet, na kateri merimo raztezek v odvisnosti od sile, s katero napenjamo vzmet (na vzmet obešamo uteži z znano težo in merimo raztezek). 
+	Predstavljajmo si, da izvajamo fizikalni poskus. Imamo vzmet, na kateri merimo raztezek v odvisnosti od sile, s katero napenjamo vzmet (na vzmet obešamo uteži z znano težo in merimo raztezek).
 
 	\footnote{Podatki pridobljeni iz: \texttt{http://www.clemson.edu/ces/phoenix/labs/124/shm/}}
 	\begin{tabular}{l|lllll}
@@ -43,12 +44,29 @@
 	Naš cilj je, da minimiziramo to napako. Minimum funkcije pa najdemo tako, da izračunamo, kdaj je odvod funkcije enak 0.
 
 	\subsection*{Odvodi}
-	Kaj so odvodi? Geometrijski pomen, ničle odvoda?
+	Odvod (označimo ga z $ f'(x) $) funkcije $ f(x) $ nam pove, kakšen je koeficient tangente na graf fukncije $ f(x) $ v točki x. Za lažjo predstavo si oglejmo nekaj primerov:
+	\begin{itemize}
+  	\setlength\itemsep{0em}
+  	\item če funkcija na intervalu $ (a,b) $ raste, bo odvod v točki $ x \in (a,b) $ večji od nič (zelena tangenta),
+  	\item če funkcija na intervalu $ (a,b) $ pada, bo odvod v točki $ x \in (a,b) $ manjši od nič (modra tangenta),
+		\item če je odvod enak nič, pa ima funkcija v tisti točki lokalni ekstrem (minimum, maksimum ali sedlo).
+	\end{itemize}
+
+	\begin{center}
+		\begin{tikzpicture}
+	      \draw[->] (-1,0) -- (3,0) node[right] {$x$};
+	      \draw[->] (0,-1) -- (0,4) node[above] {$y$};
+	      \draw[domain=-0.8:2.8,smooth,variable=\x,black] plot ({\x},{\x*\x-2*\x+1.5});
+				\draw[domain=-0.8:1.1,smooth,variable=\x,blue] plot ({\x},{-2*\x+1.5});
+				\draw[domain=-0.8:2.8,smooth,variable=\y,red] plot ({\y},{0.5});
+				\draw[domain=0.1:2.8,smooth,variable=\x,green] plot ({\x},{1.2*\x-1.06});
+	  \end{tikzpicture}
+	\end{center}
 
 	\subsection*{Delni odvodi}
 	\paragraph{}
 	Funkcija je odvisna od večih spremenljivk, zato jo moramo odvajati za vsako spremenljivko posebej. Ker nam odvod ene spremenljivke pove kako se funkcija obnaša samo po tej spremenljivki, temu rečemu delni odvod.
-	
+
 
 	$$\frac{\partial \varepsilon}{\partial a} =
 		\sum_{i=1}^{N} 2 \frac{\partial (a x_i - b - y_i)}{\partial a} =
@@ -59,31 +77,31 @@
 		2 \sum_{i=1}^{N} (a x_i - b - y_i)(-1) = -2 \sum_{i=1}^{N} (a x_i - b - y_i)$$
 
 	Rešitev najdemo tako, da ugotovimo, pri katerih $a$ in $b$ sta odvoda enaka 0. To lahko rešimo z uporabmo matrik, vendar tega ne znamo, zato se bomo tega lotili s primitvno metodo gradientnega spusta.
-	
+
 	\section*{Gradientni spust}
 	\paragraph{}
 	Gradient nam pove smer največjega naraščanja funkcije. Gradient funkcije f(x) je vektor definiran kot:
 	$$\nabla f = \begin{pmatrix}\frac{\partial f}{\partial x_{1}} & \frac{\partial f}{\partial x_{2}} & \frac{\partial f}{\partial x_{3}} & ... & \frac{\partial f}{\partial x_{n}}\end{pmatrix}$$
-	
+
 	V našem primeru linearne regresije je gradientni spust:
 	$$\nabla \varepsilon =
 	\begin{pmatrix}
 	\frac{\partial \varepsilon}{\partial a} &
-	\frac{\partial \varepsilon}{\partial b} 
+	\frac{\partial \varepsilon}{\partial b}
 	\end{pmatrix}$$
-	
+
 	\paragraph{}
 	Ker iščemo minimum funckije se bomo premikali v nasprotno smer gradienta. Spremembo spremenljivke $a$ lahko zapišemo kot:
 	$$\Delta a = -(\nabla \varepsilon)_1 \cdot \lambda$$
 	kjer $\lambda$ predstavlja velikost premika.
-	
+
 	Naše nove spremenljivke so:
 	$$ a = a + \Delta a$$
 	$$ b = b + \Delta b$$
-	
+
 	\paragraph{}
 	S tem smo se premaknili za en korak bližje minimumu funkcije, to pomeni parametroma $a$ in $b$ pri katerih se bo premica najbolje prilegala na"sim to"ckam. Ta postopek ponovimo še n-krat. Večkrat ko ga ponovimo, bolj natančen bo naš rezultat.
-	
+
 	\paragraph{}
 	Natančnost našega rezultata je odvisna tudi od $\lambda$ (velikost premika) in začetnih vrednost spremenljivk $a$ in $b$. Z manjšo velikostjo premika bo rezultat bolj natančen, vendar bomo morali postopek večkrat ponoviti. Ker s postopkom isčemo samo lokalne minimume, nam začetna vrednost spremenljivk določi kateri minimum bomo našli.
 
@@ -91,7 +109,7 @@
 	\section*{Linerana regresija elipse}
 	\paragraph{}
 	Imamo $N$ točk krožnice nekega planeta $T_1(x_1, y_1), T_2(x_2, y_2) \ldots, T_n(x_n, y_n)$. Podobno kot pri prej"snjem primeru, bomo tudi tokrat iskali funkcijo, ki se to"ckam najbolj prilega. Tokrat bomo namesto premice iskali elipso, saj se elipsa seveda bolj prilega kro"znici planeta kot pa premica.
-	
+
 
 	Elipsa je sto"znica, zato zapišemo splošno enačbo za sto"znice:
 	$$Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$$
@@ -118,7 +136,7 @@
 
 	\paragraph{}
 	Da najdemo najbolj"se parametre, pri katerih bo funkcija imela najmanj"so napako, bomo ponovno uporabili gradientni spust. Za razliko od gradientnega spusti pri eni premici, bomo tokrat spreminjali "sest parametrov. Na"s gradient je torej:
-	
+
 	$$\nabla \varepsilon = \begin{pmatrix}
 	\frac{\partial \varepsilon}{\partial A} &
 	\frac{\partial \varepsilon}{\partial B} &
@@ -127,27 +145,27 @@
 	\frac{\partial \varepsilon}{\partial E} &
 	\frac{\partial \varepsilon}{\partial F}
  	\end{pmatrix}$$
-	
+
 	To pomeni da so na"se spremembe parametrov:
-	
+
 	$$\Delta A = -(\nabla \varepsilon)_1 \cdot \lambda$$
 	$$\Delta B = -(\nabla \varepsilon)_2 \cdot \lambda$$
 	$$\Delta C = -(\nabla \varepsilon)_3 \cdot \lambda$$
 	$$\Delta D = -(\nabla \varepsilon)_4 \cdot \lambda$$
 	$$\Delta E = -(\nabla \varepsilon)_5 \cdot \lambda$$
 	$$\Delta F = -(\nabla \varepsilon)_6 \cdot \lambda$$
-	
+
 	Iz "cesar sledi, da so na"si novi parametri podobno kot pri premici:
-	
+
 	$$A = A + \Delta A$$
 	$$B = B + \Delta B$$
 	$$C = C + \Delta C$$
 	$$D = D + \Delta D$$
 	$$E = E + \Delta E$$
 	$$F = F + \Delta F$$
-	
+
 	\paragraph{}Pravilnost na"sega rezultata je seveda odvisna od tega koliko ponovitev bomo naredili, kolik"sna bo na"sa $\lambda$ in kak"sne za"cetne vrednosti $A, B, C, D, E$ in $F$ smo si izbrali.
-	
+
     \section*{Logistična regresija}
     \paragraph{}
     Glavna razlika med logistično in linearno regesijo je, da pri linearni regresiji določamo zvezno spremenljivko ($y$ je odvisen od $x$), medtem ko nam pri logistični regresiji model vrne kakšna je verjetnost, da vhodni podatki sodijo v določeno kategorijo.
