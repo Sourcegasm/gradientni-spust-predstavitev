@@ -12,7 +12,7 @@
 
 	\section*{Linearna regresija}
 	\paragraph{}
-	Predstavljajmo si, izvajamo fizikalni poskus. Imamo vzmet, na kateri merimo raztezek v odvisnosti od sile, s katero napenjamo vzmet (na vzmet obešamo uteži z znano težo in merimo raztezek). 
+	Predstavljajmo si, da izvajamo fizikalni poskus. Imamo vzmet, na kateri merimo raztezek v odvisnosti od sile, s katero napenjamo vzmet (na vzmet obešamo uteži z znano težo in merimo raztezek). 
 
 	\footnote{Podatki pridobljeni iz: \texttt{http://www.clemson.edu/ces/phoenix/labs/124/shm/}}
 	\begin{tabular}{l|lllll}
@@ -58,7 +58,7 @@
 		\sum_{i=1}^{N} 2 \frac{\partial (a x_i - b - y_i)}{\partial b} =
 		2 \sum_{i=1}^{N} (a x_i - b - y_i)(-1) = -2 \sum_{i=1}^{N} (a x_i - b - y_i)$$
 
-	Rešitev najdemo tako, da ugotovimo, pri katerih $a$ in $b$ sta odvoda enaka 0. To lahko rešimo z uporabmo matrik, vendar tega ne zamo, zato se bomo tega lotili s primitvno metodo gradientnega spusta.
+	Rešitev najdemo tako, da ugotovimo, pri katerih $a$ in $b$ sta odvoda enaka 0. To lahko rešimo z uporabmo matrik, vendar tega ne znamo, zato se bomo tega lotili s primitvno metodo gradientnega spusta.
 	
 	\section*{Gradientni spust}
 	\paragraph{}
@@ -75,14 +75,14 @@
 	\paragraph{}
 	Ker iščemo minimum funckije se bomo premikali v nasprotno smer gradienta. Spremembo spremenljivke $a$ lahko zapišemo kot:
 	$$\Delta a = -(\nabla \varepsilon)_1 \cdot \lambda$$
-	kjer $\lambda$ predstavlja velikost permika.
+	kjer $\lambda$ predstavlja velikost premika.
 	
 	Naše nove spremenljivke so:
 	$$ a = a + \Delta a$$
 	$$ b = b + \Delta b$$
 	
 	\paragraph{}
-	S tem smo se premaknili za en korak bližje minimumu funkcije, to pomeni parametrama $a$ in $b$ pri katerih se bo premica najbolje prilegala na"sim to"ckam. Ta postopek ponovimo še n-krat. Večkrat ko ga ponovimo, bolj natančen bo naš rezultat.
+	S tem smo se premaknili za en korak bližje minimumu funkcije, to pomeni parametroma $a$ in $b$ pri katerih se bo premica najbolje prilegala na"sim to"ckam. Ta postopek ponovimo še n-krat. Večkrat ko ga ponovimo, bolj natančen bo naš rezultat.
 	
 	\paragraph{}
 	Natančnost našega rezultata je odvisna tudi od $\lambda$ (velikost premika) in začetnih vrednost spremenljivk $a$ in $b$. Z manjšo velikostjo premika bo rezultat bolj natančen, vendar bomo morali postopek večkrat ponoviti. Ker s postopkom isčemo samo lokalne minimume, nam začetna vrednost spremenljivk določi kateri minimum bomo našli.

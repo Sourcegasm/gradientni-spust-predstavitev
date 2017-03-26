@@ -1,7 +1,7 @@
 import numpy as np
 
 def load_data():
-    with open('data/houses.cvs') as F:
+    with open('podatki.cvs') as F:
         data = F.readlines()
 
     # data format: price, house area, land area, construction year, renovation year
