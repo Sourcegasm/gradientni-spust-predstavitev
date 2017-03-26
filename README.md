@@ -8,4 +8,5 @@ Predstavitev gradientnega spusta po domače.
 - Podatki o legah planetov, kometov in raziskovalnih sond.
 
 ## Viri podatkov
-Vsi podatki o legi nebesnih teles so pridobljeni s strani [HelioWeb](http://omniweb.gsfc.nasa.gov/coho/helios/heli.html).
+- Vsi podatki o legi nebesnih teles so pridobljeni s strani [HelioWeb](http://omniweb.gsfc.nasa.gov/coho/helios/heli.html).
+- Jezikovni Neural Network je odprtokodni projekt na [GitHub-u](https://github.com/carykh/neuralNetworkLanguageDetection).
