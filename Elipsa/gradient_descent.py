@@ -1,9 +1,9 @@
-from convert import convert_line
+from data import convert_line
 
 def get_data(filename='data/mars.csv'):
     with open(filename, 'r') as F:
         text_data = F.readlines()
-        
+
     data = []
     for line in text_data:
         data.append(convert_line(line))
