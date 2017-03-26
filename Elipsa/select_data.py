@@ -17,19 +17,19 @@ def select_data():
             answer = int(input('Your selection: '))
 
             if answer == 1:
-                data = get_data('data/mars_half_year.csv')
+                data = get_data('Podatki/mars_half_year.csv')
             elif answer == 2:
-                data = get_data('data/mars_full.csv')
+                data = get_data('Podatki/mars_full.csv')
             elif answer == 3:
-                data = get_data('data/mars_full.csv')[::4]
+                data = get_data('Podatki/mars_full.csv')[::4]
             elif answer == 4:
-                data = get_data('data/earth.csv')
+                data = get_data('Podatki/earth.csv')
             elif answer == 5:
-                data = get_data('data/saturn.csv')
+                data = get_data('Podatki/saturn.csv')
             elif answer == 6:
-                data = get_data('data/jupiter.csv')
+                data = get_data('Podatki/jupiter.csv')
             elif answer == 7:
-                data = get_data('data/halley.csv')
+                data = get_data('Podatki/halley.csv')
             elif answer == 8:
                 data = get_data(input('Path: '))
             else:
@@ -77,7 +77,7 @@ def select_data():
                 step = 1e-6
 
             # load Earth data
-            earth_data = get_data('data/earth.csv')
+            earth_data = get_data('Podatki/earth.csv')
 
             done = True
         except ValueError:

@@ -1,6 +1,6 @@
 from data import convert_line
 
-def get_data(filename='data/mars.csv'):
+def get_data(filename='Podatki/mars.csv'):
     with open(filename, 'r') as F:
         text_data = F.readlines()
 
