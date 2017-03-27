@@ -16,11 +16,10 @@ Predstavitev gradientnega spusta po domače.
 - Besedilo je napisano v latexu.
 - Animacije so narejene v IPythonu (Jupyter)
 
-    pip3 install jupyter
-    # za animacije
-    git clone https://github.com/jakevdp/JSAnimation.git
-    cd JSAnimation
-    python3 setup.py install
-    cd ..
-    jupyter notebook
-
+```pip3 install jupyter
+# za animacije
+git clone https://github.com/jakevdp/JSAnimation.git
+cd JSAnimation
+python3 setup.py install
+cd ..
+jupyter notebook```
