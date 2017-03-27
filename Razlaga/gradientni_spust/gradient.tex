@@ -1,30 +1,28 @@
 \paragraph{}
-Gradient neke funkcije je vektor, ki ka"ze v smer nara"s"canja te funkcije. Gradient funkcije $f(x)$ ozna"cimo z $\nabla f(x)$. Pri funkciji z enim parametrom ($f(x)$), ima gradient te funkcije samo eno komponento, to je odvod funkcije $f(x)$. To zapi"semo kot:
+Gradient neke funkcije je vektor, ki ka"ze v smer nara"s"canja te funkcije. Gradient funkcije $f$ ozna"cimo z $\nabla f$. Pri funkciji z enim parametrom ($f(x)$), ima gradient te funkcije samo eno komponento, to je odvod funkcije $f(x)$. To zapi"semo kot:
 
-\[\nabla f(x) = \begin{pmatrix}f'(x)\end{pmatrix} \]
-
-\paragraph{}
-"Ce je funkcija odvisna od dveh spremenljivk, je vsaka komponenta gradienta en delni odvod. To pomeni da nam prva komponenta gradienta pove kako se funkcija spreminja po $x$ osi, druga komponenta gradienta pa nam pove kako se funkcija spreminja po $y$ osi. Gradient funkcije $f(x,y)$ lahko torej zapi"semo kot:
-
-\[\nabla f(x,y) = \begin{pmatrix}
-\frac{\partial f(x,y)}{\partial x} (x) &
-\frac{\partial f(x,y)}{\partial y} (y)
-\end{pmatrix} \]
+\[\nabla f = \begin{pmatrix}f'\end{pmatrix} \]
 
 \paragraph{}
-V zgornjih dveh primerih smo zapisali gradient funkcije v dolo"ceni to"cki $x$ oziroma $(x, y)$. "Ce bi drugi primer zapisali v spl"snem bi to zgledalo kot:
+"Ce je funkcija odvisna od dveh spremenljivk, je vsaka komponenta gradienta en delni odvod. To pomeni da nam prva komponenta gradienta pove kam nara"s"ca funkcija in kako strma je glede na prvi parameter, druga komponenta gradienta pa nam pove kam nara"s"ca funkcija in kako strma je glede na drugi parameter funkcije.
 
-\[\nabla f = \begin{pmatrix}
-\frac{\partial f}{\partial x} &
-\frac{\partial f}{\partial y}
-\end{pmatrix}
-\]
+\paragraph{}
+Za la"zjo predstavo si oglejmo gradient funkcije $f(x,y)$. Prva komponenta tega gradienta nam bo povedala strmino funkcije v smeri $x$ osi, druga komponenta tega gradienta pa nam bo povedala strmino funkcije v smeri $y$ osi.
 
-To pomeni da lahko funkcijo odvisno od $n$ paramtertov, zapi"semo kot:
+\paragraph{}
+V splo"snem lahko gradient funkcije $f$, ki je odvisna od $n$ parametrov zapi"semo kot:
+
 \[\nabla f = \begin{pmatrix}
 \frac{\partial f}{\partial x_1} &
 \frac{\partial f}{\partial x_2} &
 \frac{\partial f}{\partial x_2} &
 \dots &
 \frac{\partial f}{\partial x_n}
+\end{pmatrix} \]
+
+Gradient na"se napake pa bi izgledal takole:
+
+\[\nabla \varepsilon = \begin{pmatrix}
+\frac{\partial \varepsilon}{\partial a} &
+\frac{\partial \varepsilon}{\partial b}
 \end{pmatrix} \]

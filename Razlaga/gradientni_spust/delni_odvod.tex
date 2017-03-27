@@ -1,24 +1,13 @@
 \paragraph{}
-Funkcija lahko vzame ve"c kot en parameter, kar pomeni da je odvisna od 2eh spremenljivk. "Ce bi tako funkcijo "zeleli narisati bi potrebovali 3D graf.
-
-\begin{figure}[h!]
-	\centering
-	\caption{3D funkcija}
-	\begin{tikzpicture}
-		\begin{axis}[
-			hide axis,
-			colormap/cool,
-		]
-		%\addplot3[
-		%	mesh,
-		%	samples=50,
-		%	domain=-8:8,
-		%]
-		%{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
-		\legend{$\frac{\sin r}{r}$}
-		\end{axis}
-	\end{tikzpicture}
-\end{figure}
+Povedali smo, da je funkcija lahko odvisna od ve"cih parametrov. Tako funkcijo moramo odvajati po vsaki spremenljivki posebej, kar pomeni da potrebujemo funkcijo $f(x,y)$ odvajati po $x$ in po $y$. S tem dobimo dva odvoda. Odvod po $x$ nam pove kako funkcija nara"s"ca oziroma pada "ce spreminjamo $x$ parameter, odvod po $y$ pa nam seveda pove kako funkcija nara"s"ca oziroma pada po $y$ parametru. Takemu odvodu re"cemo delni odvod, zapi"semo pa ga kot $\frac{\partial f(x,y)}{\partial x}$ za delni odvod po $x$ in $\frac{\partial f(x,y)}{\partial y}$ za delni odvod po $y$.
 
 \paragraph{}
-Tako funkcijo moramo odvajati po vsaki spremenljivki posebej, kar pomeni da potrebujemo funkcijo $f(x,y)$ odvajati po $x$ in po $y$. S tem dobimo dva odvoda. Odvod po $x$ nam pove kako funkcija nara"s"ca oziroma pada "ce spreminjamo $x$ parameter, odvod po $y$ pa nam seveda pove kako funkcija nara"s"ca oziroma pada po $y$ parametru. Takemu odvodu re"cemo delni odvod, zapi"semo pa ga kot $\frac{\partial f(x,y)}{\partial x}$ za delni odvod po $x$ in $\frac{\partial f(x,y)}{\partial y}$ za delni odvod po $y$.
+Za trenutek se vrnimo na za"cetni problem, ki nas je pripeljal do sem. "Zelelimo najti tako premico, ki se najbolj prilega vsem danim to"ckam. Definirali smo "ze skupno napako in ugotovili da je na"sa napaka funkcija, ki je odvisna od spremenjivk $a$ in $b$. Sedaj lahko pora"cunamo, kako strma je na"sa napaka za dani $a$ in kako strma je na"sa napaka za dani $b$. Druga"ce povedano, izra"cunamo lahko delni odvod napake po $a$ in delni odvod napake po $b$.
+
+$$\frac{\partial \varepsilon}{\partial a} =
+\sum_{i=1}^{N} 2 \frac{\partial (a x_i + b - y_i)}{\partial a} =
+2 \sum_{i=1}^{N} (a x_i + b - y_i)x_i$$
+
+$$\frac{\partial \varepsilon}{\partial b} =
+\sum_{i=1}^{N} 2 \frac{\partial (a x_i + b - y_i)}{\partial b} =
+2 \sum_{i=1}^{N} (a x_i + b - y_i)\cdot1 = 2 \sum_{i=1}^{N} (a x_i + b - y_i)$$

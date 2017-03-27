@@ -21,24 +21,6 @@
 	\section*{Prilagajanje premice}
 	\input{prilagajanje_premice}
 
-	
-
-	\subsection*{Delni odvodi}
-	\paragraph{}
-	Funkcija je odvisna od večih spremenljivk, zato jo moramo odvajati za vsako spremenljivko posebej. Ker nam odvod ene spremenljivke pove kako se funkcija obnaša samo po tej spremenljivki, temu rečemu delni odvod.
-
-
-	$$\frac{\partial \varepsilon}{\partial a} =
-	\sum_{i=1}^{N} 2 \frac{\partial (a x_i - b - y_i)}{\partial a} =
-	2 \sum_{i=1}^{N} (a x_i - b - y_i)x_i$$
-
-	$$\frac{\partial \varepsilon}{\partial b} =
-	\sum_{i=1}^{N} 2 \frac{\partial (a x_i - b - y_i)}{\partial b} =
-	2 \sum_{i=1}^{N} (a x_i - b - y_i)(-1) = -2 \sum_{i=1}^{N} (a x_i - b - y_i)$$
-
-	Rešitev najdemo tako, da ugotovimo, pri katerih $a$ in $b$ sta odvoda enaka 0. To lahko rešimo z uporabmo matrik, vendar tega ne zamo, zato se bomo tega lotili s primitvno metodo gradientnega spusta.
-
-
 	\section*{Linerana regresija elipse}
 	\paragraph{}
 	Imamo $N$ točk krožnice nekega planeta $T_1(x_1, y_1), T_2(x_2, y_2) \ldots, T_n(x_n, y_n)$. Podobno kot pri prej"snjem primeru, bomo tudi tokrat iskali funkcijo, ki se to"ckam najbolj prilega. Tokrat bomo namesto premice iskali elipso, saj se elipsa seveda bolj prilega kro"znici planeta kot pa premica.
