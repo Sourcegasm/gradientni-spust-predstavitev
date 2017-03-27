@@ -1,0 +1,30 @@
+\paragraph{}
+	Predstavljajmo si, izvajamo fizikalni poskus. Imamo vzmet, na kateri merimo raztezek v odvisnosti od sile, s katero napenjamo vzmet (na vzmet obešamo uteži z znano težo in merimo raztezek).
+
+	\footnote{Podatki pridobljeni iz: \texttt{http://www.clemson.edu/ces/phoenix/labs/124/shm/}}
+	\begin{tabular}{l|lllll}
+		$F$ {[}N{]}  & 1  & 2  & 3  & 4  & 5  \\ \hline
+		$x$ {[}cm{]} & 10 & 20 & 35 & 55 & 80
+	\end{tabular}
+
+	\paragraph{}
+	Velja Hookov zakon, $F = k x$, torej sta $x$ in $F$ med seboj linearno odvisna. Poskušali bomo najti premico, ki se bo najbolje prilegala danim točkam v ravnini.
+
+	\paragraph{}
+	Če imamo 2 točki $T_1(x_1, y_1), T_2(x_2, y_2)$, lahko brez težav najdemo premico, ki gre točno skozi niju. Če pa je točk več, ni nujno, da obstaja premica, ki gre skozi vse točke.
+	Iščemo taka $a$ in $b$, da se bo premica kar najbolje prilegala danim točkam. Če gre premica skozi neko točko $T_i(x_i, y_i)$, potem velja:
+
+	$$0 = a x_i + b - y_i$$
+
+	Ker pa naša premica ne poteka direktno skozi vse točke pride do napake, ki jo bomo v točki $T_i$ označili z $\varepsilon_i$.
+
+	$$\varepsilon_i = a x_i + b - y_i$$
+
+	\paragraph{}
+	Napaka je lahko pozitivna ali negativna, odvisno ali točka leži pod ali nad premico. Želimo zmanjšati velikost vseh napak, ne glede na to, ali so pozitivne ali negativne. (Lahko bi preprosto sešteli absolutne vrednosti napak, ampak pozneje funkcije ne bi mogli odvajati.) Zato seštejemo kvadrate vseh napak.
+
+	$$\varepsilon = \sum_{i=1}^{N} \varepsilon_i^2$$
+	$$\varepsilon = \sum_{i=1}^{N} (a x_i + b - y_i)^2$$
+
+	\paragraph{}
+	Naš cilj je, da minimiziramo to napako. Napako bomo minimizirali s pomo"cjo gradientnega spusta.

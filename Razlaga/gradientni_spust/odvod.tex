@@ -1,0 +1,23 @@
+\paragraph{}
+Odvod neke funkcije $f(x)$ je strmina te funkcije v to"cki $x$. Odvod je pozitiven "ce funkcija nara"sca in negativen "ce funkcija pada. Ve"cji kot je odvod, bolj strma je funkcija v dani to"cki. Odvod funkcije $f(x)$, ki ga ozna"cimo z $f'(x)$, nam torej pove, kakšen je koeficient tangente na graf fukncije $ f(x) $ v točki $x$.
+
+
+\begin{figure}[!h]
+	\centering
+	\caption{Odvod}
+	\begin{tikzpicture}
+	\begin{axis}[axis lines=left, xmin=-5, xmax=6, ymin=-1, ymax=6]
+	\addplot[color=black, smooth]{0.2*x^2};
+
+	\addplot[color=red]{0.8*x - 0.8};
+	\addplot[color=red, mark=*] coordinates {(2, 0.8)};
+
+	\addplot[color=blue]{0};
+	\addplot[color=blue, mark=*] coordinates {(0, 0)};
+
+	\addplot[color=green]{-0.8*x - 0.8};
+	\addplot[color=green, mark=*] coordinates {(-2, 0.8)};
+	\legend{,,strmina>0,,strmina=0,,strmina<0}
+	\end{axis}
+	\end{tikzpicture}
+\end{figure}

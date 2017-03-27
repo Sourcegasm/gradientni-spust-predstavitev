@@ -1,0 +1,24 @@
+\paragraph{}
+Funkcija lahko vzame ve"c kot en parameter, kar pomeni da je odvisna od 2eh spremenljivk. "Ce bi tako funkcijo "zeleli narisati bi potrebovali 3D graf.
+
+\begin{figure}[h!]
+	\centering
+	\caption{3D funkcija}
+	\begin{tikzpicture}
+		\begin{axis}[
+			hide axis,
+			colormap/cool,
+		]
+		%\addplot3[
+		%	mesh,
+		%	samples=50,
+		%	domain=-8:8,
+		%]
+		%{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+		\legend{$\frac{\sin r}{r}$}
+		\end{axis}
+	\end{tikzpicture}
+\end{figure}
+
+\paragraph{}
+Tako funkcijo moramo odvajati po vsaki spremenljivki posebej, kar pomeni da potrebujemo funkcijo $f(x,y)$ odvajati po $x$ in po $y$. S tem dobimo dva odvoda. Odvod po $x$ nam pove kako funkcija nara"s"ca oziroma pada "ce spreminjamo $x$ parameter, odvod po $y$ pa nam seveda pove kako funkcija nara"s"ca oziroma pada po $y$ parametru. Takemu odvodu re"cemo delni odvod, zapi"semo pa ga kot $\frac{\partial f(x,y)}{\partial x}$ za delni odvod po $x$ in $\frac{\partial f(x,y)}{\partial y}$ za delni odvod po $y$.
