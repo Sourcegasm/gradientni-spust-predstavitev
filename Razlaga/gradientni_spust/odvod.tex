@@ -9,7 +9,20 @@ Odvod neke funkcije $f(x)$ je strmina te funkcije v to"cki $x$. Odvod je pozitiv
 	\centering
 	\caption{Odvod}
 	\begin{tikzpicture}
-	\begin{axis}[axis lines=left, xmin=-5, xmax=6, ymin=-1, ymax=6]
+	\begin{axis}[xmin=-5, xmax=5, 
+	ymin=-1, ymax=5, 
+	xlabel=$x$, ylabel=$y$, 
+	every axis x label/.style={
+		at={(ticklabel* cs:1.05)},
+		anchor=west,
+	}, 
+	every axis y label/.style={
+		at={(ticklabel* cs:1.05)},
+		anchor=south,
+	}, 
+	axis x line=left, 
+	axis y line=left, 
+	ticks=none]
 	\addplot[color=black, smooth]{0.2*x^2};
 
 	\addplot[color=red]{0.8*x - 0.8};
