@@ -1,7 +1,7 @@
 ## Razdelitev Teksta
 - Linearna regresija: Matej
 - Gradientni spust + odvod: Ziga
-- Malo o funkcija + delni odvod: Vid
+- Malo o funkcijah + delni odvod: Vid
 - Gradient: Matej
 - Prilagajanje premice:
 	- Do konca razpisave *delta a* in *delta b*: Matej
