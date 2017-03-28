@@ -2,16 +2,15 @@
 Sedaj ko razumemo kaj je gradient, se lahko vrnemo na na"s za"cetni problem, to je najti tako premico, ki se najbolj prilega $N$ to"ckam. Na tem primeru bomo razlo"zili tudi gradientni spust.
 
 \paragraph{}
-Najprej se spomnimo kaj sploh "zelimo narediti. Na"sa funkcija je $\varepsilon_i = ~ax_i + ~b - ~y_i$, kjer $\varepsilon_i$ predstavlja napako te funkcije v to"cki $T_i(x_i, y_i)$. Skupno napako smo definirali kot: $\varepsilon = \sum_{i=1}^{N} \varepsilon_i^2$ in jo tudi odvajali. Definirali smo tudi gradient na"se funkcije.
+Najprej se spomnimo, kaj sploh "zelimo narediti. Na"sa funkcija je $\varepsilon_i = ~ax_i + ~b - ~y_i$ kjer $\varepsilon_i$ predstavlja napako te funkcije v to"cki $T_i(x_i, y_i)$. Skupno napako smo definirali kot: $\varepsilon = \sum_{i=1}^{N} \varepsilon_i^2$ in jo tudi odvajali. Definirali smo tudi gradient na"se funkcije.
 
 
 \paragraph{}
-Najprej ocenimo parametra $a$ in $b$. Potem ju vsak korak spreminjamo tako, da napako zmanj"samo.
+Za"cetna parametra $a$ in $b$ dolo"cimo sami, kasneje pa jih spreminjamo z matemati"cnimi ena"cbami. Od za"cetnih parametrov je odvisna natan"cnost na"sega rezultata. Ve"c o tem bomo povedali kasneje.
 
 \paragraph{}
-Vemo torej, v katero smer na"sa funkcija napake nara"s"ca. Sedaj se lahko premaknemo v nasprotno smer, to pomeni tja, kamor na"sa funkcija pada. To da se premaknemo v neko smer, pomeni da spremenimo na"s $a$ in $b$ tako, da bo napaka manj"sa. Parameter $a$ zmanj"samo za vrednost, prve komponente na"sega gradienta, ker je ta komponenta delni odvod napake po $a$ in nam pove, kako se napaka spreminja, "ce spreminjamo $a$. Parameter $b$ pa seveda zmanj"samo za vrednost druge komponente na"sega gradienta.
+Vemo torej, v katero smer na"sa funkcija napake nara"s"ca. Sedaj se lahko premaknemo v nasprotno smer, to pomeni tja, kamor na"sa funkcija pada. To da se premaknemo v neko smer, pomeni da spremenimo na"s $a$ in $b$ tako, da bo napaka manj"sa. Parameter $a$ zmanj"samo za vrednost prve komponente na"sega gradienta, ker je ta komponenta delni odvod napake po $a$ in nam pove, kako se napaka spreminja, "ce spreminjamo $a$. Parameter $b$ pa seveda zmanj"samo za vrednost druge komponente na"sega gradienta.
 
-\paragraph{}
 Pa razpi"simo te spremembe. Spremembo $a$ lahko napi"semo kot:
 \[\Delta a = -(\nabla \varepsilon)_1 \cdot \lambda\]
 Minus uporabimo zato, ker se premikamo v smer kamor funkcija pada, to pomeni nasprotno od tega kamor ka"ze gradient. $\lambda$ je konstanta, ki nam predstavlja kako hitro spreminjamo na"s parameter. $\lambda$ dolo"cimo mi. O to"cnem pomenu $\lambda$ se bomo pogovorli nekoliko kasneje.
@@ -32,7 +31,7 @@ Sedaj ko vemo za koliko moramo spremeniti na"sa parametra $a$ in $b$, jih seveda
 \[b = b + \Delta b \]
 
 \paragraph{}
-Z vsem tem delom smo en korak bli"zje na"sim "zelenim vrednostim. Ta postopek moramo ponoviti "se velikokrat, zato izkoristimo ra"cunalnik. Ve"ckrat kot ponovimo postopek, bolj natan"cen bo na"s rezultat. Temu spreminajnju parametrov v smer gradienta pravimo gradientni spust.
+Z vsem tem delom smo en korak bli"zje na"sim "zelenim vrednostim. Ta postopek moramo ponoviti "se velikokrat, zato izkoristimo ra"cunalnik. Ve"ckrat kot ponovimo postopek, bolj natan"cen bo na"s rezultat. Temu spreminjanju parametrov v smer gradienta pravimo gradientni spust.
 
 \paragraph{}
 Natančnost našega rezultata je odvisna od $\lambda$ (velikost premika) in začetnih vrednost spremenljivk $a$ in $b$. Z manjšo velikostjo premika bo rezultat bolj natančen, vendar bomo morali postopek večkrat ponoviti. Ker s postopkom isčemo samo lokalne minimume, nam začetna vrednost spremenljivk določi kateri minimum bomo našli.

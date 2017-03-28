@@ -1,13 +1,15 @@
 \paragraph{}
-Seveda se nam ni treba omejiti samo na prilagajanje premice to"ckam. "Ce imamo na primer to"cke na kro"znici nekega planeta, bomo tem to"ckam prilagodili elipso. Recimo da imamo $N$ točk krožnice nekega planeta $T_i(x_i, y_i)$~\footnote{To"cke za planete so podane v eklipti"cnem koordinatnem sistemu. Ve"c si lahko preberete v \hyperref[eklipticni_sistem]{dodatku}.}. Podobno kot pri prej"snjem primeru, bomo tudi tokrat iskali funkcijo, ki se to"ckam najbolj prilega. Tokrat bomo namesto premice iskali elipso, saj se elipsa seveda bolj prilega kro"znici planeta kot pa premica.
-
-Ker je elipsa sto"znica, bomo za funkcijo, ki jo prilagajamo vzeli splo"sno ena"cbo sto"znic:
-$$Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$$
+Seveda se nam ni treba omejiti samo na prilagajanje premice to"ckam. "Ce imamo na primer to"cke na kro"znici nekega planeta, bomo tem to"ckam prilagodili elipso. Recimo da imamo $N$ točk krožnice nekega planeta $T_i(x_i, y_i)$.~\footnote{To"cke za planete so podane v eklipti"cnem koordinatnem sistemu. Ve"c si lahko preberete v \hyperref[eklipticni_sistem]{dodatku}.} Podobno kot pri prej"snjem primeru, bomo tudi tokrat iskali funkcijo, ki se to"ckam najbolj prilega. Tokrat bomo namesto premice iskali elipso, saj se elipsa bolj prilega kro"znici planeta kot premica.
 
 \paragraph{}
+Ker je elipsa sto"znica bomo za funkcijo, ki jo prilagajamo vzeli splo"sno ena"cbo sto"znic:
+$$Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0$$
+
 Tako kot prej se nam bo pojavila napaka, ki jo ozna"cimo z $\varepsilon$.
 $$\varepsilon_i = Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F$$
-Za razliko od premice, je oblika sto"znice odvisna od "sestih parametrov namesto dveh. To so: $A, B, C, D, E$ in $F$. Zato bomo torej spreminjali teh "sest parametrov. To pomeni da je na"sa napaka funkcija, ki je odvisna od "sestih parametrov.
+
+\paragraph{}
+Za razliko od premice je oblika sto"znice odvisna od "sestih parametrov namesto dveh. To so: $A, B, C, D, E$ in $F$. Zato bomo spreminjali teh "sest parametrov. To pomeni, da je na"sa napaka funkcija, ki je odvisna od "sestih parametrov.
 
 \paragraph{}
 Podobno kot pri premici najprej definiramo skupno napako kot vsoto kvadratov vseh napak:
@@ -15,8 +17,7 @@ Podobno kot pri premici najprej definiramo skupno napako kot vsoto kvadratov vse
 \[\varepsilon = \sum_{i=1}^{N} (Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)^2\]
 
 \paragraph{}
-Enako kot pri premici moramo na"so napako delno odvajati po spremenjivkah od katerih je na"sa napaka odvisna. To pomeni da potrebujemo izra"cunati delni odvod napake po $A, B, C, D, E$ in $F$. Delni odvodi za ena"cbo sto"znic so:
-
+Enako kot pri premici moramo na"so napako delno odvajati po spremenjivkah, od katerih je na"sa napaka odvisna. To pomeni, da moramo izra"cunati delni odvod napake po $A, B, C, D, E$ in $F$. Delni odvodi za ena"cbo sto"znic so:
 $$\frac{\partial \varepsilon}{\partial A} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_i^2)$$
 $$\frac{\partial \varepsilon}{\partial B} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(x_iy_i)$$
 $$\frac{\partial \varepsilon}{\partial C} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)(y_i^2)$$
@@ -25,7 +26,7 @@ $$\frac{\partial \varepsilon}{\partial E} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + C
 $$\frac{\partial \varepsilon}{\partial F} = \sum_{i=1}^{N}2(Ax_i^2 + Bx_iy_i + Cy_i^2 + Dx_i + Ey_i + F)$$
 
 \paragraph{}
-Da najdemo najbolj"se parametre, pri katerih bo funkcija imela najmanj"so napako, bomo ponovno uporabili gradientni spust. Za razliko od gradientnega spusti pri eni premici, bomo tokrat spreminjali "sest parametrov. Na"s gradient je torej:
+Da najdemo najbolj"se parametre, pri katerih bo funkcija imela najmanj"so napako, bomo ponovno uporabili gradientni spust. Za razliko od gradientnega spusti pri eni premici bomo tokrat spreminjali "sest parametrov. Na"s gradient je torej:
 $$\nabla \varepsilon = \begin{pmatrix}
 \frac{\partial \varepsilon}{\partial A} &
 \frac{\partial \varepsilon}{\partial B} &
@@ -51,4 +52,4 @@ $$D = D + \Delta D$$
 $$E = E + \Delta E$$
 $$F = F + \Delta F$$
 
-\paragraph{}Pravilnost na"sega rezultata je seveda odvisna od tega koliko ponovitev bomo naredili, kolik"sna bo na"sa $\lambda$ in kak"sne za"cetne vrednosti $A, B, C, D, E$ in $F$ smo si izbrali.
+\paragraph{}Pravilnost na"sega rezultata je seveda odvisna od: koliko ponovitev bomo naredili, kolik"sna bo na"sa $\lambda$ in kak"sne za"cetne vrednosti $A, B, C, D, E$ in $F$ smo si izbrali.
