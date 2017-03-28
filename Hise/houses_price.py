@@ -1,5 +1,10 @@
 import numpy as np
 
+# Sample houses
+# https://www.nepremicnine.net/oglasi-prodaja/bizovik-hisa_5981803/
+# https://www.nepremicnine.net/oglasi-prodaja/brinje-hisa_6074150/
+# https://www.nepremicnine.net/oglasi-prodaja/dravlje-hisa_6080953/
+
 def load_data():
     with open('podatki.cvs') as F:
         data = F.readlines()
@@ -27,7 +32,6 @@ def predict_price(house, x):
 if __name__ == '__main__':
     A, b = load_data()
     x = np.linalg.lstsq(A, b)[0]
-    print(x)
 
     while True:
         house_area = float(input('Kvadratura: '))
