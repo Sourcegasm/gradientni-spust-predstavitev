@@ -1,0 +1,12 @@
+## Razdelitev Teksta
+- Linearna regresija: Matej
+- Gradientni spust + odvod: Ziga
+- Malo o funkcija + delni odvod: Vid
+- Gradient: Matej
+- Prilagajanje premice:
+	- Do konca razpisave *delta a* in *delta b*: Matej
+	- Od razpisave naprej: Vid
+- Hiše: Matej
+- Linearna rergresija elipse: Žiga
+- Logistična regresija + nevronska mreža: Vid
+- Primeri NN: Žiga
