@@ -30,7 +30,7 @@ int lastPressedKey = -1;
 boolean typing = false;
 int[] countedLanguages = {0, 1};
 boolean lastOneWasCorrect = false;
-String[] languages = {"English", "Slovenian"};
+String[] languages = {"Angleško", "Slovensko"};
 int[] langSizes = new int[LANGUAGE_COUNT];
 
 int[][] longTermResults = new int[LANGUAGE_COUNT][LANGUAGE_COUNT];
@@ -128,13 +128,12 @@ void draw(){
   fill(0);
   textFont(font,48);
   textAlign(LEFT);
-  text("Cary's Neural Net!",20,50);
-  text("Iteration #"+iteration,20,150);
-  text("Input word:",20,250);
+  text("Iteracija #"+iteration,20,150);
+  text("Beseda:",20,250);
   fill(0,0,255);
   text(word.toUpperCase(),20,300);
   fill(0);
-  text("Expected output:",20,350);
+  text("Pričakovano:",20,350);
   String o = languages[desiredOutput];
   if(typing){
     o = "???";
@@ -142,28 +141,28 @@ void draw(){
   fill(0,0,255);
   text(o,20,400);
   fill(0);
-  text("Step size:",20,500);
+  text("Velikost koraka:",20,500);
   text(nf((float)(brain.alpha),0,4),20,550);  
-  text("Min Word Len: "+MINIMUM_WORD_LENGTH,20,650);
-  text("Possible Languages:",20,700);
+  text("Minimalna dolžina besede: "+MINIMUM_WORD_LENGTH,20,650);
+  text("Jeziki:",20,700);
   for(int i = 0; i < countedLanguages.length; i++){
     text(languages[countedLanguages[i]],20,750+i*50);
   }
   
   int ex = 1330;
-  text("Actual prediction:",ex,50);
+  text("Napoved:",ex,50);
   String s = "";
   if(typing){
-    s = "HOW'D I DO?";
+    s = "<?>";
     fill(160,120,0);
   }
   else{
     if(lastOneWasCorrect){
-      s = "RIGHT";
+      s = "PRAV";
       fill(0,140,0);
     }
     else{
-      s = "WRONG";
+      s = "NAROBE";
       fill(255,0,0);
     }
     
@@ -171,22 +170,22 @@ void draw(){
   text(languages[brain.topOutput]+" ("+s+")",ex,100);
   fill(0);
   
-  text("Confidence: "+percentify(brain.confidence),ex,150);
+  text("Prepričanost: "+percentify(brain.confidence),ex,150);
   
-  text("% of last "+guessWindow+" correct:",ex,250);
+  text("% prav med zadnjih "+guessWindow+":",ex,250);
   text(percentify(((float)recentRightCount)/min(iteration,guessWindow)),ex,300);
   
-  text("1 to toggle training.",ex,400);
-  text("2 to do one training.",ex,450);
-  text("3 to decrease step size.",ex,500);
-  text("4 to increase step size.",ex,550);
-  text("5 to output results: log"+logNumber,ex,600);
-  text("6 to toggle smoothing.",ex,650);
+  text("1 neprekinjeno treniranje.",ex,400);
+  text("2 en trening.",ex,450);
+  text("3 zmanjšaj korak.",ex,500);
+  text("4 povečaj korak.",ex,550);
+  text("5 shrani rezultate: log"+logNumber,ex,600);
+
   if(smooth == 1){
     text("Smoothing is on.",ex,800);
   }
-  text("Current streak: "+streak,ex,900);
-  text("Longest streak: "+longStreak,ex,950);
+  text("Zaporedno pravilnih: "+streak,ex,900);
+  text("Največ: "+longStreak,ex,950);
   
   translate(550,40);
   brain.drawBrain(55);
@@ -237,7 +236,6 @@ int binarySearch(int lang, int n, int beg, int end){
   int mid = (beg+end)/2;
   
   String s = trainingData[lang][mid];
-  System.out.println(s);
   int diff = n-Integer.parseInt(s.substring(s.lastIndexOf(",")+1,s.length()));
   if(diff == 0){
     return mid+1;
