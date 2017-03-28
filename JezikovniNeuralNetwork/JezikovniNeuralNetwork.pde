@@ -237,6 +237,7 @@ int binarySearch(int lang, int n, int beg, int end){
   int mid = (beg+end)/2;
   
   String s = trainingData[lang][mid];
+  System.out.println(s);
   int diff = n-Integer.parseInt(s.substring(s.lastIndexOf(",")+1,s.length()));
   if(diff == 0){
     return mid+1;
@@ -265,6 +266,7 @@ double getBrainErrorFromLine(String word, int desiredOutput, boolean train){
       c = (int)word.toUpperCase().charAt(i)-64;
     }
     c = max(0,c);
+        
     inputs[i*INPUTS_PER_CHAR+c] = 1;
   }
   double desiredOutputs[] = new double[OUTPUT_LAYER_HEIGHT];

@@ -1,0 +1,7 @@
+            English     Slovenian   
+
+English     48.8%       1.78%       
+Slovenian   1.07%       48.35%      
+97.15% Correct
+Longest Streak:1694
+Iteration #4281
