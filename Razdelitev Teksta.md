@@ -6,7 +6,7 @@
 - Prilagajanje premice:
 	- Do konca razpisave *delta a* in *delta b*: Matej
 	- Od razpisave naprej: Vid
-- Hiše: Matej
 - Linearna rergresija elipse: Žiga
+- Hiše: Matej
 - Logistična regresija + nevronska mreža: Vid
 - Primeri NN: Žiga
