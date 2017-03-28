@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{hyperref}
 
 \setlength{\parindent}{0px}
 \setlength{\parskip}{10px}
@@ -31,22 +32,6 @@
 	\input{nevronska_mreza}
 
 	\section*{Dodatno}
-	\subsection*{Ekliptični koordinatni sistem}
-	\paragraph{}
-	Eden izmed koordinatnih sistemov za določanje lege nebesnih teles. Lokacijo določimo s tremi podatki. Ker so koordinate definirane glede na ravnino zemljine orbite, je $z$ koordinata za Zemljo vedno enaka 0.
-	\begin{description}
-		\item[$l$] longtituda, ekliptična dolžina, od $0^\circ$ do $360^\circ$.
-		\item[$b$] latituda, ekliptična širina od $-90^\circ$ do $90^\circ$.
-		\item[$r$] razdalja
-	\end{description}
-
-	\paragraph{}
-	V kartezične koordinate podatke pretvorimo po formulah:
-	$$x = r \cos b \cos l$$
-	$$y = r \cos b \sin l$$
-	$$z = r \sin b$$
-
-	\paragraph{}
-	Ker tiri vseh planetov ležijo v (skoraj) isti ravnini, se bomo naredili fizike in $z$ koordianto zanemarili.
+	\input{dodatno}
 
 \end{document}
