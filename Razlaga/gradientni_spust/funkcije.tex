@@ -15,12 +15,12 @@ $\sqrt{x^2 + y^2}$ predstavlja oddaljenost to"cke, ki jo podamo funkciji od izho
 	hide axis,
 	colormap/cool,
 	]
-	%\addplot3[
-	%	mesh,
-	%	samples=50,
-	%	domain=-8:8,
-	%]
-	%{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
+	\addplot3[
+		mesh,
+		samples=50,
+		domain=-8:8,
+	]
+	{sin(deg(sqrt(x^2+y^2)))/sqrt(x^2+y^2)};
 	\legend{$\frac{\sin r}{r}$}
 	\end{axis}
 	\end{tikzpicture}
