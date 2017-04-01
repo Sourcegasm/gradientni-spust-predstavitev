@@ -3,7 +3,7 @@ import java.math.RoundingMode;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 
-final float WINDOW_SCALE_SIZE = 0.7;
+final float WINDOW_SCALE_SIZE = 0.9;
 final int MINIMUM_WORD_LENGTH = 5;
 final float STARTING_AXON_VARIABILITY = 1.0;
 final int TRAINS_PER_FRAME = 20;
@@ -182,7 +182,7 @@ void draw(){
   text("5 shrani rezultate: log"+logNumber,ex,600);
 
   if(smooth == 1){
-    text("Smoothing is on.",ex,800);
+    text("",ex,800);
   }
   text("Zaporedno pravilnih: "+streak,ex,900);
   text("Največ: "+longStreak,ex,950);

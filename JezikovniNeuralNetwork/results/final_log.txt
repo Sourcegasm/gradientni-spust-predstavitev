@@ -1,7 +1,7 @@
-            English     Slovenian   
+            Angleško    Slovensko   
 
-English     48.8%       1.78%       
-Slovenian   1.07%       48.35%      
-97.15% Correct
-Longest Streak:1694
-Iteration #4281
+Angleško    41.4%       8.44%       
+Slovensko   6.93%       43.23%      
+84.63% Correct
+Longest Streak:58
+Iteration #21924
