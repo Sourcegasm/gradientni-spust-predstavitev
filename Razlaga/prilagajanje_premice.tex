@@ -9,7 +9,7 @@ Najprej se spomnimo, kaj sploh "zelimo narediti. Na"sa funkcija je $\varepsilon_
 Za"cetna parametra $a$ in $b$ dolo"cimo sami, kasneje pa jih spreminjamo z matemati"cnimi ena"cbami. Od za"cetnih parametrov je odvisna natan"cnost na"sega rezultata. Ve"c o tem bomo povedali kasneje.
 
 \paragraph{}
-Vemo torej, v katero smer na"sa funkcija napake nara"s"ca. Sedaj se lahko premaknemo v nasprotno smer, to pomeni tja, kamor na"sa funkcija pada. To da se premaknemo v neko smer, pomeni da spremenimo na"s $a$ in $b$ tako, da bo napaka manj"sa. Parameter $a$ zmanj"samo za vrednost prve komponente na"sega gradienta, ker je ta komponenta delni odvod napake po $a$ in nam pove, kako se napaka spreminja, "ce spreminjamo $a$. Parameter $b$ pa seveda zmanj"samo za vrednost druge komponente na"sega gradienta.
+Vemo torej, v katero smer na"sa funkcija napake nara"s"ca. Sedaj se lahko premaknemo v nasprotno smer, to pomeni tja, kamor na"sa funkcija pada. To da se premaknemo v neko smer, pomeni da spremenimo na"s $a$ in $b$ tako, da bo napaka manj"sa. Parameter $a$ zmanj"samo za vrednost prve komponente na"sega gradienta, ker je ta komponenta parcialni odvod napake po $a$ in nam pove, kako se napaka spreminja, "ce spreminjamo $a$. Parameter $b$ pa seveda zmanj"samo za vrednost druge komponente na"sega gradienta.
 
 Pa razpi"simo te spremembe. Spremembo $a$ lahko napi"semo kot:
 \[\Delta a = -(\nabla \varepsilon)_1 \cdot \lambda\]
@@ -19,7 +19,7 @@ Spremembo $b$ pa lahko zapi"semo kot:
 \[\Delta b = -(\nabla \varepsilon)_2 \cdot \lambda\]
 
 \paragraph{}
-V te dve ena"cbi lahko sedaj vstavimo delna odvoda, ki smo ju nara"cunali prej in dobimo:
+V te dve ena"cbi lahko sedaj vstavimo parcialna odvoda, ki smo ju nara"cunali prej in dobimo:
 \[\Delta a = -\sum_{i=1}^{N} (a x_i + b - y_i)x_i \cdot \lambda \]
 \[\Delta b = -\sum_{i=1}^{N} (a x_i + b - y_i) \cdot \lambda \]
 
